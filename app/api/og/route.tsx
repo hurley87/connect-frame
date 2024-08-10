@@ -6,7 +6,13 @@ import { NextRequest } from 'next/server';
 export async function GET(
   request: NextRequest,
 ) {
-  const username = request.nextUrl.searchParams.get("username")
+  const username = request.nextUrl.searchParams.get("username") || '';
+  const bio = request.nextUrl.searchParams.get("bio") || '';
+  const img = request.nextUrl.searchParams.get("img") || '';  
+
+  console.log('username', username);
+  console.log('bio', bio);
+  console.log('img', img);
 
 
   return new ImageResponse(
@@ -18,13 +24,30 @@ export async function GET(
           background: 'white',
           width: '100%',
           height: '100%',
-          padding: '50px 200px',
-          textAlign: 'center',
-          justifyContent: 'center',
           alignItems: 'center',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          gap: 6,
+
         }}
       >
-        👋 Hello {username}
+        <img
+          src={img}
+          style={{
+            width: 100,
+            height: 100,
+            borderRadius: '50%',
+            marginRight: 'auto',
+            marginLeft: 'auto',
+          }}
+        />
+        <span>{username}</span>
+        <span style={{
+          fontSize: 20,
+          textAlign: 'center',
+        }}>{bio}</span>
+
       </div>
     ),
     {

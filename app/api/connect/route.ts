@@ -37,7 +37,11 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const initialUrl = `${api_url}?id=${channel}&limit=1000`;
   const allUsers = await fetchUsers(initialUrl);
 
-  console.log('allUsers', allUsers);
+
+    // pick a random user
+    const randomUser = allUsers[Math.floor(Math.random() * allUsers.length)];
+
+    console.log('randomUser', randomUser);
 
   return new NextResponse(
     getFrameHtmlResponse({

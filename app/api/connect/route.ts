@@ -53,9 +53,9 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         },
       ],
       image: {
-        src: `https://connections-frame.vercel.app/park-1.png`,
+        src: `https://connect-frame.vercel.app/park-1.png`,
       },
-      postUrl: `https://connections-frame.vercel.app/api/frame`,
+      postUrl: `https://connect-frame.vercel.app/api/frame`,
       state: {
         time: new Date().toISOString(),
       },

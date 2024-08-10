@@ -1,8 +1,14 @@
 import { ImageResponse } from '@vercel/og';
+import { NextRequest } from 'next/server';
 // App router includes @vercel/og.
 // No need to install it.
  
-export async function GET() {
+export async function GET(
+  request: NextRequest,
+) {
+  const username = request.nextUrl.searchParams.get("username")
+
+
   return new ImageResponse(
     (
       <div
@@ -18,7 +24,7 @@ export async function GET() {
           alignItems: 'center',
         }}
       >
-        👋 Hello World
+        👋 Hello {username}
       </div>
     ),
     {

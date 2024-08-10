@@ -24,12 +24,12 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
     if (json?.users) users.push(...json?.users);
 
-    const cursor = json?.next?.cursor;
+    // const cursor = json?.next?.cursor;
 
-    if (cursor) {
-      const nextUrl = `${api_url}?id=${channel}&limit=1000&cursor=${cursor}`;
-      return fetchUsers(nextUrl, users);
-    }
+    // if (cursor) {
+    //   const nextUrl = `${api_url}?id=${channel}&limit=1000&cursor=${cursor}`;
+    //   return fetchUsers(nextUrl, users);
+    // }
 
     return users;
   };

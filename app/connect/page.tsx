@@ -8,10 +8,10 @@ const frameMetadata = getFrameMetadata({
     },
   ],
   image: {
-    src: `https://connections-frame.vercel.app/park-3.png`,
+    src: `https://connect-frame.vercel.app/park-3.png`,
     aspectRatio: '1:1',
   },
-  postUrl: `https://connections-frame.vercel.app/api/connect`,
+  postUrl: `https://connect-frame.vercel.app/api/connect`,
 });
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'zizzamia.xyz',
     description: 'LFG',
-    images: [`https://connections-frame.vercel.app/park-1.png`],
+    images: [`https://connect-frame.vercel.app/park-1.png`],
   },
   other: {
     ...frameMetadata,

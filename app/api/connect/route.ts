@@ -1,9 +1,5 @@
 import { FrameRequest, getFrameMessage, getFrameHtmlResponse } from '@coinbase/onchainkit/frame';
-import { Resvg } from '@resvg/resvg-js';
 import { NextRequest, NextResponse } from 'next/server';
-import { ReactNode } from 'react';
-import satori from 'satori';
-import { html } from "satori-html";
 
 const api_key = process.env.NEYNAR_API_KEY as string;
 const api_url = 'https://api.neynar.com/v2/farcaster/channel/followers';
@@ -58,33 +54,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
     const image = randomUser?.pfp_url; 
     
-    // use satori to create an image with the username and pfp_url as their avatar
-    const markup = html`<html>
-      <body style="margin: 0; padding: 0">
-        <div style="display: flex; align-items: center; justify-content: center; height: 100vh; width: 100vw; overflow: hidden; position: relative; color: white;">
-          ${bio}
-        </div>
-      </body>
-    </html>` as ReactNode
-
-    // Minimum twitter OG image size
-    const svg = await satori(markup, {
-      width: 1200,
-      height: 675,
-      fonts: [
-        {
-          name: 'Arial',
-          data: await fetch('https://example.com/arial.ttf').then(res => res.arrayBuffer()),
-          weight: 400,
-          style: 'normal',
-        },
-      ],
-    });
-    
-
-    const pngBuffer = new Resvg(svg, { background: "#000" }).render().asPng();
-    const base64Image = `data:image/png;base64,${pngBuffer.toString('base64')}`;
-
 
   return new NextResponse(
     getFrameHtmlResponse({
@@ -97,7 +66,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         },
       ],
       image: {
-        src: base64Image,
+        src: image,
       },
       postUrl: `https://connect-frame.vercel.app/api/connect`,
       state: {

@@ -26,8 +26,8 @@ export async function GET(
           flexDirection: 'column',
           justifyContent: 'center',
           gap: 6,
-          paddingRight: 10,
-          paddingLeft: 10,
+          paddingRight: '20px',
+          paddingLeft: '20px',
         }}
       >
         <img

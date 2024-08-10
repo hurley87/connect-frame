@@ -1,7 +1,9 @@
 import { FrameRequest, getFrameMessage, getFrameHtmlResponse } from '@coinbase/onchainkit/frame';
 import { NextRequest, NextResponse } from 'next/server';
+
 const api_key = process.env.NEYNAR_API_KEY as string;
 const api_url = 'https://api.neynar.com/v2/farcaster/channel/followers';
+
 
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
@@ -43,23 +45,29 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
     console.log('randomUser', randomUser);
 
+    const username = randomUser?.username;
+
+    console.log('username', username);
+
+    const bio = randomUser?.profile.bio;
+    console.log('bio', bio);
+
+    const image = randomUser?.pfp_url;      
+
   return new NextResponse(
     getFrameHtmlResponse({
       buttons: [
         {
-          action: 'link',
-          label: 'OnchainKit',
-          target: 'https://onchainkit.xyz',
+            label: `Kiss ${username}`,
         },
         {
-          action: 'post_redirect',
-          label: 'Dog pictures',
+          label: `Slap ${username}`,
         },
       ],
       image: {
-        src: `https://connect-frame.vercel.app/park-1.png`,
+        src: image,
       },
-      postUrl: `https://connect-frame.vercel.app/api/frame`,
+      postUrl: `https://connect-frame.vercel.app/api/connect`,
       state: {
         time: new Date().toISOString(),
       },

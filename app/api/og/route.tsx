@@ -11,10 +11,6 @@ export async function GET(
   const bio = decodeURIComponent(searchParams.get('bio') || '');
   const img = decodeURIComponent(searchParams.get('img') || '');
 
-  console.log('username', username);
-  console.log('bio', bio);
-  console.log('img', img);
-
 
   return new ImageResponse(
     (
@@ -30,7 +26,8 @@ export async function GET(
           flexDirection: 'column',
           justifyContent: 'center',
           gap: 6,
-
+          paddingRight: 10,
+          paddingLeft: 10,
         }}
       >
         <img

@@ -49,7 +49,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
     console.log('username', username);
 
-    const bio = randomUser?.profile.bio;
+    const bio = randomUser?.profile.bio.text;
     console.log('bio', bio);
 
     const image = randomUser?.pfp_url; 

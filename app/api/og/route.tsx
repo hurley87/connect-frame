@@ -6,9 +6,10 @@ import { NextRequest } from 'next/server';
 export async function GET(
   request: NextRequest,
 ) {
-  const username = request.nextUrl.searchParams.get("username") || '';
-  const bio = request.nextUrl.searchParams.get("bio") || '';
-  const img = request.nextUrl.searchParams.get("img") || '';  
+  const { searchParams } = new URL(request.url);
+  const username = decodeURIComponent(searchParams.get('username') || '');
+  const bio = decodeURIComponent(searchParams.get('bio') || '');
+  const img = decodeURIComponent(searchParams.get('img') || '');
 
   console.log('username', username);
   console.log('bio', bio);

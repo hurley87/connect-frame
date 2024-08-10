@@ -59,10 +59,10 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     getFrameHtmlResponse({
       buttons: [
         {
-            label: `Kiss ${username}`,
+            label: `😘 Kiss`,
         },
         {
-          label: `Slap ${username}`,
+          label: `🫲 Slap`,
         },
       ],
       image: {

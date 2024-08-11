@@ -64,6 +64,9 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         {
           label: `🫲 Slap`,
         },
+        {
+          label: `🏆 Rank`,
+        },
       ],
       image: {
         src: `https://connect-frame.vercel.app/api/og?username=${encodeURIComponent(username)}&bio=${encodeURIComponent(bio)}&img=${encodeURIComponent(image)}`,

@@ -59,12 +59,15 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     getFrameHtmlResponse({
       buttons: [
         {
+          
             label: `😘 Kiss`,
         },
         {
           label: `🫲 Slap`,
         },
         {
+          action: 'link',
+          target: 'http://localhost:3000/',
           label: `🏆 Rank`,
         },
       ],

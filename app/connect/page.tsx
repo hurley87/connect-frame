@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: 'Make Connections and Earn',
+      label: 'Play Kiss or Slap, Earn $Star Tokens',
     },
   ],
   image: {

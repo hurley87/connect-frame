@@ -42,7 +42,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
     // pick a random user
     const randomUser = allUsers[Math.floor(Math.random() * allUsers.length)];
-
     console.log('randomUser', randomUser);
 
     const username = randomUser?.username;
@@ -53,14 +52,20 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     console.log('bio', bio);
 
     const image = randomUser?.pfp_url; 
-    
 
+    if (message?.button === 1) {
+      console.log('Kiss');
+    }
+
+    if(message?.button === 2) {
+      console.log('Slap');
+    }
+    
   return new NextResponse(
     getFrameHtmlResponse({
       buttons: [
         {
-          
-            label: `😘 Kiss`,
+          label: `😘 Kiss`,
         },
         {
           label: `🫲 Slap`,

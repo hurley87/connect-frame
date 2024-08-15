@@ -14,6 +14,9 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     return new NextResponse('Message not valid', { status: 500 });
   }
 
+  console.log('message', message);  
+  const userAddress = message.interactor.verified_accounts[0];
+
   const channel = 'enjoy';
   const fetchUsers: any = async (url: string, users: any[] = []) => {
     const response = await fetch(url, {

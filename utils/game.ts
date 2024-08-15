@@ -3,7 +3,7 @@ import { baseSepolia } from 'viem/chains';
 import { privateKeyToAccount } from 'viem/accounts';
 import { abi } from './abi.json';
 
-const account = privateKeyToAccount(process.env.PRIVATE_KEY as Hex);
+const account = privateKeyToAccount(process.env.PRIVATE_KEY as `0x${string}`);
 const providerUrl = process.env.RPC_URL;
 const chain = baseSepolia
 const contractAddress = '0x2A382FE83B7969e44386B0C6CBc01138bF48Ed72';
@@ -19,6 +19,9 @@ const walletClient = createWalletClient({
 });
 
 export async function kiss(sender: `0x${string}`, _recipient: `0x${string}`) {
+  console.log('kiss', sender, _recipient);
+  console.log('key', process.env.PRIVATE_KEY); 
+  
   try {
     const { request }: any = await publicClient.simulateContract({
       account,

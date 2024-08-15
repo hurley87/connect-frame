@@ -80,10 +80,10 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         },
       ],
       image: {
-        src: `https://connect-frame.vercel.app/api/og?username=${encodeURIComponent(username)}&bio=${encodeURIComponent(bio)}&img=${encodeURIComponent(image)}`,
+        src: `https://kissorslap.vercel.app/api/og?username=${encodeURIComponent(username)}&bio=${encodeURIComponent(bio)}&img=${encodeURIComponent(image)}`,
         aspectRatio: '1:1',
       },
-      postUrl: `https://connect-frame.vercel.app/api/connect`,
+      postUrl: `https://kissorslap.vercel.app/api/connect`,
       state: {
         time: new Date().toISOString(),
       },

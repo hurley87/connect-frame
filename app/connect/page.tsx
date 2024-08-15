@@ -8,19 +8,19 @@ const frameMetadata = getFrameMetadata({
     },
   ],
   image: {
-    src: `https://connect-frame.vercel.app/logo.jpg`,
+    src: `https://kissorslap.vercel.app/logo.jpg`,
     aspectRatio: '1:1',
   },
-  postUrl: `https://connect-frame.vercel.app/api/connect`,
+  postUrl: `https://kissorslap.vercel.app/api/connect`,
 });
 
 export const metadata: Metadata = {
-  title: 'zizzamia.xyz',
+  title: 'Kiss or Slap',
   description: 'LFG',
   openGraph: {
-    title: 'zizzamia.xyz',
+    title: 'Kiss or Slap',
     description: 'LFG',
-    images: [`https://connect-frame.vercel.app/logo.jpg`],
+    images: [`https://kissorslap.vercel.app/logo.jpg`],
   },
   other: {
     ...frameMetadata,

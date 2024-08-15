@@ -71,10 +71,10 @@ const frameMetadata = getFrameMetadata({
 });
 
 export const metadata: Metadata = {
-  title: 'zizzamia.xyz',
+  title: 'Kiss or Slap',
   description: 'LFG',
   openGraph: {
-    title: 'zizzamia.xyz',
+    title: 'Kiss or Slap',
     description: 'LFG',
     images: [`${NEXT_PUBLIC_URL}/park-1.png`],
   },
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <h1>zizzamia.xyz</h1>
+      <h1>Kiss or Slap</h1>
     </>
   );
 }
@@ -112,7 +112,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 ### `app/config.ts`
 
 ```ts
-export const NEXT_PUBLIC_URL = 'https://zizzamia.xyz';
+export const NEXT_PUBLIC_URL = 'https://Kiss or Slap';
 ```
 
 ### `app/api/frame/route.ts`

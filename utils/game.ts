@@ -6,7 +6,7 @@ import { abi } from './abi.json';
 const account = privateKeyToAccount(process.env.PRIVATE_KEY as `0x${string}`);
 const providerUrl = process.env.RPC_URL;
 const chain = baseSepolia
-const contractAddress = '0x2A382FE83B7969e44386B0C6CBc01138bF48Ed72';
+const contractAddress = '0x01D63f856bA76FA1780c58C5a73939D0F5C45BD2';
 
 export const publicClient = createPublicClient({
   chain,

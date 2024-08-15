@@ -1,5 +1,6 @@
 import { FrameRequest, getFrameMessage, getFrameHtmlResponse } from '@coinbase/onchainkit/frame';
 import { NextRequest, NextResponse } from 'next/server';
+import { kiss, slap } from '../../../utils/game';
 
 const api_key = process.env.NEYNAR_API_KEY as string;
 const api_url = 'https://api.neynar.com/v2/farcaster/channel/followers';
@@ -15,7 +16,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   }
 
   console.log('message', message);  
-  const userAddress = message?.interactor?.verified_addresses?.eth_addresses?.[0] ?? undefined;
+  const userAddress = message?.interactor?.verified_addresses?.eth_addresses?.[0] as `0x${string}`;
 
   const channel = 'enjoy';
   const fetchUsers: any = async (url: string, users: any[] = []) => {
@@ -62,10 +63,12 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       console.log('Kiss');
       console.log('userAddress', userAddress);
       console.log('randomUserAddress', randomUserAddress);
+      await kiss(userAddress, randomUserAddress);
     }
 
     if(message?.button === 2) {
       console.log('Slap');
+      await slap(userAddress, randomUserAddress);
     }
     
   return new NextResponse(

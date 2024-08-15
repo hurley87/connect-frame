@@ -1,10 +1,10 @@
-import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
+// import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
 
-const LockModule = buildModule("LockModule", (m) => {
+// const LockModule = buildModule("LockModule", (m) => {
 
-  const lock = m.contract("Kisses", []);
+//   const lock = m.contract("Kisses", []);
 
-  return { lock };
-});
+//   return { lock };
+// });
 
-export default LockModule;
+// export default LockModule;

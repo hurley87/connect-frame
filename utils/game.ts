@@ -1,4 +1,4 @@
-import { createWalletClient, http, createPublicClient, Hex } from 'viem';
+import { createWalletClient, http, createPublicClient } from 'viem';
 import { baseSepolia } from 'viem/chains';
 import { privateKeyToAccount } from 'viem/accounts';
 import { abi } from './abi.json';
@@ -19,9 +19,6 @@ const walletClient = createWalletClient({
 });
 
 export async function kiss(sender: `0x${string}`, _recipient: `0x${string}`) {
-  console.log('kiss', sender, _recipient);
-  console.log('key', process.env.PRIVATE_KEY); 
-  
   try {
     const { request }: any = await publicClient.simulateContract({
       account,
@@ -30,6 +27,8 @@ export async function kiss(sender: `0x${string}`, _recipient: `0x${string}`) {
       functionName: 'kiss',
       args: [sender, _recipient],
     });
+    console.log('walletClient', walletClient);
+    console.log('request', request);
     const transaction = await walletClient.writeContract(request);
 
     console.log('transaction', transaction);

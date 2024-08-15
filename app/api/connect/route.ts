@@ -15,7 +15,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     return new NextResponse('Message not valid', { status: 500 });
   }
 
-  console.log('message', message);  
   const userAddress = message?.interactor?.verified_addresses?.eth_addresses?.[0] as `0x${string}`;
 
   const channel = 'enjoy';
@@ -49,14 +48,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     console.log('randomUser', randomUser);
 
     const username = randomUser?.username;
-
-    console.log('username', username);
-
     const bio = randomUser?.profile.bio.text;
-    console.log('bio', bio);
-
     const image = randomUser?.pfp_url; 
-
     const randomUserAddress = randomUser?.verified_addresses.eth_addresses[0];
 
     if (message?.button === 1) {

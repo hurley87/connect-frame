@@ -15,7 +15,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   }
 
   console.log('message', message);  
-  const userAddress = message.interactor.verified_accounts[0];
+  const userAddress = message?.interactor?.verified_addresses?.eth_addresses?.[0] ?? undefined;
 
   const channel = 'enjoy';
   const fetchUsers: any = async (url: string, users: any[] = []) => {
@@ -56,8 +56,12 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
     const image = randomUser?.pfp_url; 
 
+    const randomUserAddress = randomUser?.verified_addresses.eth_addresses[0];
+
     if (message?.button === 1) {
       console.log('Kiss');
+      console.log('userAddress', userAddress);
+      console.log('randomUserAddress', randomUserAddress);
     }
 
     if(message?.button === 2) {

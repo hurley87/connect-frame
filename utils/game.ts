@@ -19,8 +19,6 @@ const walletClient = createWalletClient({
 });
 
 export async function kiss(sender: `0x${string}`, _recipient: `0x${string}`) {
-  console.log('walletClient', walletClient);
-  console.log('account', account);
   try {
     const { request }: any = await publicClient.simulateContract({
       account,
@@ -53,8 +51,6 @@ export async function slap(sender: `0x${string}`, _recipient: `0x${string}`) {
       });
 
       const transaction = await walletClient.writeContract(request);
-
-      console.log('transaction', transaction);
   
       return transaction;
     } catch (error) {

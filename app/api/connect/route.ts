@@ -17,7 +17,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   const userAddress = message?.interactor?.verified_addresses?.eth_addresses?.[0] as `0x${string}`;
 
-  const channel = 'enjoy';
+  const channel = 'wallet-poker';
   const fetchUsers: any = async (url: string, users: any[] = []) => {
     const response = await fetch(url, {
       headers: {
